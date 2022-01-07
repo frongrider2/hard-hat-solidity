@@ -5,7 +5,6 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 import "./Helper.sol";
 
 contract AdvanceCollection is ERC721URIStorage, Helper {
