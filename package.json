@@ -12,6 +12,7 @@
     "run:nft:dog": "hardhat run --network rinkeby ./script/nft/deploy_and_create.ts",
     "run:upgrade:box": "hardhat run --network rinkeby ./script/upgrade/deploy.ts",
     "run:full:deploy": "hardhat run --network rinkeby ./script/fullstackdefi/deploy.ts",
+    "run:presale:deploy": "hardhat run --network testnet ./script/presale/deploy.ts",
     "mainnetfork": "start_mainnet_fork_node.sh",
     "deploy:mainnetfork:LoterryToken": "hardhat --network mainnetfork deploy --no-compile --reset --tags DeployLotteryToken"
   },

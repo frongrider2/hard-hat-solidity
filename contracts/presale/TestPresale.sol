@@ -87,6 +87,14 @@ contract TestPresale is Ownable {
     return token.balanceOf(address(this));
   }
 
+  function setMaxBNB(uint256 _val) external onlyOwner {
+    maxBnb = _val;
+  }
+
+  function setUSDperBNB(uint256 _val) external onlyOwner {
+    tokenPerUSD = _val;
+  }
+
   function withdrawAll() external onlyOwner {
     payable(owner()).transfer(address(this).balance);
     uint256 available = token.balanceOf(address(this));

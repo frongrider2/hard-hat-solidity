@@ -21,6 +21,10 @@ contract TestPresaleToken is ERC20, ERC20Burnable, Ownable, Mintable {
     token = TestToken(_address);
   }
 
+  function setTimeToUpgrade(uint256 _timeToUpgrade) external onlyOwner {
+    timeToUpgrade = _timeToUpgrade;
+  }
+
   function mintPresale(address _to, uint256 _amount) public onlyMinter {
     increaseMint(_amount);
     _mint(_to, _amount);

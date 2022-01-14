@@ -36,7 +36,7 @@ module.exports = {
       ],
     },
     testnet: {
-      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
       accounts: [
         process.env.LOCAL_PRIVATE_KEY_1,
         process.env.LOCAL_PRIVATE_KEY_2,

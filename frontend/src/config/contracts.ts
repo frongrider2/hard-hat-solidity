@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   presale: {
-    97: "0x5D5DF1119b0d28b00F587cC6ca8F25EC4edC7BF2",
-    56: "0x5D5DF1119b0d28b00F587cC6ca8F25EC4edC7BF2",
+    97: "0xaf02b1972A3C6A8C10119888D001f104Ff662F0B",
+    56: "0xaf02b1972A3C6A8C10119888D001f104Ff662F0B",
   },
   presaleToken: {
-    97: "0xE82255ABaaECe4Aab637B094Cdd9F49a78BE479A",
-    56: "0xE82255ABaaECe4Aab637B094Cdd9F49a78BE479A",
+    97: "0xb2715b7067e2318AD75cAB490B0a7bc2Df080f98",
+    56: "0xb2715b7067e2318AD75cAB490B0a7bc2Df080f98",
   },
   multiCall: {
     56: "0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B",

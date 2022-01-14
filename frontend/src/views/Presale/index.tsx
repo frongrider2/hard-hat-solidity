@@ -1,4 +1,4 @@
-import { GridColumn, H1TEXT, Text } from "components/box";
+import { GridColumn, GridRow, H1TEXT, Text } from "components/box";
 import { ethers } from "ethers";
 import useActiveWeb3React from "hooks/useActiveWeb3React";
 import { usePresaleContract, usePresaleTokenContract } from "hooks/useContract";
@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import InputText from "components/InputText/InputText";
 import Button from "components/Button";
+import { fromWei } from "utils/unitConversion";
 
 function Presale() {
   const [load, setLoad] = useState(true);
@@ -54,9 +55,27 @@ function Presale() {
     if (Number(e.target.value) < 0.1 || !e.target.value || Number(e.target.value) > 1) {
       setBuyRound("0");
     } else {
-      const wei = ethers.utils.parseUnits(Number(e.target.value).toString()).toString();
-      const willGet = await PresaleToken.calculateAmount(wei);
-      console.log(willGet);
+    }
+  };
+
+  const willget = async () => {
+    const wei = ethers.utils.parseUnits(val).toString();
+    console.log(wei);
+    const willGet = await PresaleContract.calculateAmount(wei);
+    setBuyRound(fromWei(willGet).toString());
+  };
+
+  const buy = async () => {
+    try {
+      const wei = ethers.utils.parseUnits(val).toString();
+      const buyResult = await PresaleContract.buy({
+        value: wei,
+      });
+      console.log(buyResult);
+      await buyResult.wait();
+      setRe(!re);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -67,7 +86,10 @@ function Presale() {
       <H1TEXT>All Token : {!load ? allToken : <LoadingOutlined />} token</H1TEXT>
       <H1TEXT>Remaining Token : {!load ? remain : <LoadingOutlined />} token</H1TEXT>
       <InputText type="number" value={val} onChange={handleChange} />
-      <Button text="BUY" disabled={val === "0" || val === ""} />
+      <GridRow rowTem="1fr 1fr" gap="2rem">
+        <Button onClick={willget} text="CALCURATE MIN" disabled={val === "0" || val === ""} />
+        <Button onClick={buy} text="BUY" disabled={val === "0" || val === ""} />
+      </GridRow>
       <H1TEXT>You will Recieve : {!load2 ? buyRound : <LoadingOutlined />} token</H1TEXT>
     </GridColumn>
   );
